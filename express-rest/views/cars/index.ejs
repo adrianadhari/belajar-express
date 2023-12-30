@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: rgb(221, 221, 221);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        table {
+            margin-bottom: 30px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>List Car</h1>
+        <table>
+            <tr>
+                <th>Brand</th>
+                <th>Type</th>
+                <th>Owner</th>
+            </tr>
+            <% for(let car of cars) { %>
+                <tr>
+                    <td>
+                        <%= car.brand %>
+                    </td>
+                    <td>
+                        <%= car.type %>
+                    </td>
+                    <td>
+                        <%= car.owner %>
+                    </td>
+                    <td><a href="/car/<%= car.id %>">Detail</a></td>
+                    <td><a href="/car/<%= car.id %>/edit">Edit</a></td>
+                </tr>
+                <% } %>
+        </table>
+        <form action="" method="POST" style="display: flex; flex-direction: column; width: 17%; gap: 10px;">
+            <input type="text" name="type" id="type" placeholder="Type car">
+            <input type="text" name="brand" id="brand" placeholder="Brand car">
+            <input type="text" name="owner" id="owner" placeholder="Owner car">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
